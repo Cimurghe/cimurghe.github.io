@@ -41,7 +41,6 @@
         }
 
         html {
-            /* Prevent pull-to-refresh on mobile */
             overscroll-behavior: none;
         }
 
@@ -52,16 +51,13 @@
             min-height: 100vh;
             min-height: 100dvh;
             overflow-x: hidden;
-            /* Prevent text selection on buttons */
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Prevent zoom on double-tap for buttons */
         button, .control-btn, .speed-btn, .btn {
             touch-action: manipulation;
         }
 
-        /* Subtle grid background */
         body::before {
             content: '';
             position: fixed;
@@ -82,7 +78,6 @@
             flex-direction: column;
         }
 
-        /* Header */
         header {
             padding: 1.25rem 2rem;
             border-bottom: 1px solid var(--border-subtle);
@@ -124,7 +119,6 @@
             gap: 0.75rem;
         }
 
-        /* Buttons */
         .btn {
             font-family: var(--font-ui);
             font-size: 0.875rem;
@@ -164,7 +158,6 @@
             aspect-ratio: 1;
         }
 
-        /* Main Content */
         main {
             flex: 1;
             display: flex;
@@ -173,7 +166,6 @@
             gap: 2rem;
         }
 
-        /* Input Screen */
         .input-screen {
             flex: 1;
             display: flex;
@@ -238,7 +230,7 @@
 
         .file-input-wrapper {
             position: relative;
-            overflow: hidden; /* Contain the absolute positioned input */
+            overflow: hidden;
         }
 
         .file-input-wrapper input[type="file"] {
@@ -251,7 +243,6 @@
             left: 0;
         }
 
-        /* Teleprompter Screen */
         .teleprompter-screen {
             flex: 1;
             display: none;
@@ -267,7 +258,6 @@
             display: none;
         }
 
-        /* Display Area */
         .display-area {
             flex: 1;
             display: flex;
@@ -321,7 +311,6 @@
             transition: all var(--transition-fast);
         }
 
-        /* Word type colors */
         .word-type-math {
             color: var(--accent-cyan);
         }
@@ -334,7 +323,6 @@
             color: var(--accent-green);
         }
 
-        /* Pause display */
         .pause-display {
             display: flex;
             flex-direction: column;
@@ -382,7 +370,6 @@
             max-width: 600px;
         }
 
-        /* Controls Panel */
         .controls-panel {
             background: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
@@ -554,7 +541,6 @@
             background: white;
         }
 
-        /* Progress Bar */
         .progress-section {
             margin: 0 auto;
             max-width: 700px;
@@ -606,7 +592,6 @@
             text-align: right;
         }
 
-        /* Keyboard shortcuts hint */
         .shortcuts-hint {
             position: fixed;
             bottom: 1rem;
@@ -663,7 +648,6 @@
             font-size: 0.7rem;
         }
 
-        /* Empty state */
         .empty-state {
             text-align: center;
             padding: 4rem 2rem;
@@ -686,7 +670,6 @@
             color: var(--text-secondary);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -707,7 +690,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            /* Make it feel like a native app */
             html, body {
                 height: 100%;
                 overflow: hidden;
@@ -715,7 +697,7 @@
 
             .app-container {
                 height: 100vh;
-                height: 100dvh; /* Dynamic viewport height for mobile browsers */
+                height: 100dvh;
             }
 
             header {
@@ -741,12 +723,10 @@
                 flex: 1;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                /* Ensure content fits in viewport */
                 max-height: calc(100vh - 55px);
                 max-height: calc(100dvh - 55px);
             }
 
-            /* Input screen mobile */
             .input-screen {
                 gap: 0.75rem;
                 height: 100%;
@@ -764,7 +744,7 @@
 
             .input-area {
                 flex: 1;
-                min-height: 0; /* Important for flex shrinking */
+                min-height: 0;
                 display: flex;
                 flex-direction: column;
                 gap: 0.75rem;
@@ -773,7 +753,7 @@
             textarea {
                 flex: 1;
                 min-height: 120px;
-                max-height: 40vh; /* Limit textarea height */
+                max-height: 40vh;
                 font-size: 0.8rem;
                 padding: 0.75rem;
             }
@@ -781,7 +761,7 @@
             .input-actions {
                 flex-direction: column;
                 gap: 0.5rem;
-                flex-shrink: 0; /* Prevent buttons from shrinking */
+                flex-shrink: 0;
                 padding-bottom: 0.5rem;
             }
 
@@ -793,14 +773,13 @@
             }
 
             .input-actions .file-input-wrapper {
-                order: 2; /* Put upload button second */
+                order: 2;
             }
 
             .input-actions #loadScriptBtn {
-                order: 1; /* Put start button first */
+                order: 1;
             }
 
-            /* Teleprompter screen mobile - maximize word display */
             .teleprompter-screen {
                 gap: 0.35rem;
                 height: 100%;
@@ -812,7 +791,7 @@
                 padding: 0.5rem;
                 min-height: unset;
                 flex: 1;
-                min-height: 0; /* Allow shrinking */
+                min-height: 0;
             }
 
             .context-previous, .context-next {
@@ -855,12 +834,11 @@
                 gap: 0.75rem;
             }
 
-            /* Controls - larger touch targets but compact layout */
             .controls-panel {
                 padding: 0.6rem 0.75rem;
                 border-radius: 12px;
                 margin: 0;
-                flex-shrink: 0; /* Don't let controls shrink */
+                flex-shrink: 0;
             }
 
             .controls-main {
@@ -874,7 +852,6 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 10px;
-                /* Larger touch target without visual change */
                 position: relative;
             }
 
@@ -930,7 +907,7 @@
 
             .speed-btn {
                 flex: 1;
-                min-width: calc(14.28% - 0.2rem); /* 7 buttons */
+                min-width: calc(14.28% - 0.2rem);
                 padding: 0.4rem 0.15rem;
                 font-size: 0.65rem;
                 text-align: center;
@@ -962,7 +939,6 @@
                 transform: translateX(18px);
             }
 
-            /* Progress section */
             .progress-section {
                 padding: 0 0.25rem;
                 flex-shrink: 0;
@@ -998,19 +974,16 @@
                 gap: 0.25rem;
             }
 
-            /* Hide keyboard shortcuts on mobile */
             .shortcuts-hint, .shortcuts-panel {
                 display: none !important;
             }
 
-            /* Settings modal mobile */
             .modal {
                 width: 95%;
                 max-height: 90vh;
                 padding: 1.25rem;
             }
 
-            /* Header actions */
             .header-actions {
                 gap: 0.5rem;
             }
@@ -1028,7 +1001,6 @@
             }
         }
 
-        /* Extra small screens (iPhone SE, etc) */
         @media (max-width: 375px) {
             .current-word {
                 font-size: 2rem;
@@ -1071,7 +1043,6 @@
             }
         }
 
-        /* Landscape mobile - prioritize word display */
         @media (max-width: 896px) and (orientation: landscape) {
             .display-area {
                 padding: 0.25rem;
@@ -1123,7 +1094,6 @@
             }
         }
 
-        /* High-DPI / tall phones (like 2868x1320 which is ~430px CSS width on 3x) */
         @media (max-width: 500px) and (min-height: 700px) {
             textarea {
                 max-height: 45vh;
@@ -1146,7 +1116,6 @@
             }
         }
 
-        /* PWA / Fullscreen styles */
         @media (display-mode: standalone), (display-mode: fullscreen) {
             header {
                 padding-top: env(safe-area-inset-top, 0.75rem);
@@ -1157,7 +1126,6 @@
             }
         }
 
-        /* Touch device optimizations */
         @media (hover: none) and (pointer: coarse) {
             .control-btn:hover {
                 background: var(--bg-tertiary);
@@ -1202,7 +1170,6 @@
             }
         }
 
-        /* Settings Modal */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -1258,7 +1225,6 @@
             margin-top: 1.5rem;
         }
 
-        /* Statistics display */
         .stats-bar {
             display: flex;
             gap: 2rem;
@@ -1284,7 +1250,7 @@
     <div class="app-container">
         <header>
             <div class="logo">
-                <div class="logo-icon">∫</div>
+                <div class="logo-icon">&#x222B;</div>
                 <span class="logo-text">Math Proof Teleprompter</span>
             </div>
             <div class="header-actions">
@@ -1311,22 +1277,22 @@
             <div class="input-screen" id="inputScreen">
                 <div class="input-header">
                     <h2>Load Your Script</h2>
-                    <p>Paste your word-by-word formatted text or upload a .txt file</p>
+                    <p>Paste your proof script with [PAUSE] directives between phrases</p>
                 </div>
                 <div class="input-area">
                     <textarea id="scriptInput" placeholder="Paste your script here...
 
-Example format (one word per line):
-Thus
-comma
+Example format (phrases on lines, separated by pauses):
+Theorem colon
+[PAUSE 1.5 seconds]
+Every bounded monotonically
 [PAUSE 2 seconds]
-cap
-L
-open
-bracket
+increasing sequence in cap R
+[PAUSE 2 seconds]
+converges
 
-Or space-separated:
-Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
+Each non-pause line is split into individual words.
+[PAUSE X seconds] lines create timed pauses."></textarea>
                     <div class="input-actions">
                         <div class="file-input-wrapper">
                             <button class="btn">
@@ -1376,13 +1342,13 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
                                 <polyline points="18 17 13 12 18 7"></polyline>
                             </svg>
                         </button>
-                        <button class="control-btn" id="rewind5Btn" title="Rewind 5 words (Shift+←)">
+                        <button class="control-btn" id="rewind5Btn" title="Rewind 5 words (Shift+Left)">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="11 19 2 12 11 5 11 19"></polygon>
                                 <polygon points="22 19 13 12 22 5 22 19"></polygon>
                             </svg>
                         </button>
-                        <button class="control-btn" id="prevBtn" title="Previous word (←)">
+                        <button class="control-btn" id="prevBtn" title="Previous word (Left)">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="19 20 9 12 19 4 19 20"></polygon>
                                 <line x1="5" y1="19" x2="5" y2="5"></line>
@@ -1397,13 +1363,13 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
                                 <rect x="14" y="4" width="4" height="16"></rect>
                             </svg>
                         </button>
-                        <button class="control-btn" id="nextBtn" title="Next word (→)">
+                        <button class="control-btn" id="nextBtn" title="Next word (Right)">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="5 4 15 12 5 20 5 4"></polygon>
                                 <line x1="19" y1="5" x2="19" y2="19"></line>
                             </svg>
                         </button>
-                        <button class="control-btn" id="forward5Btn" title="Forward 5 words (Shift+→)">
+                        <button class="control-btn" id="forward5Btn" title="Forward 5 words (Shift+Right)">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="13 19 22 12 13 5 13 19"></polygon>
                                 <polygon points="2 19 11 12 2 5 2 19"></polygon>
@@ -1485,10 +1451,10 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
 
         <div class="shortcuts-panel" id="shortcutsPanel">
             <div class="shortcut-row"><span>Play/Pause</span><span class="shortcut-key">Space</span></div>
-            <div class="shortcut-row"><span>Next word</span><span class="shortcut-key">→</span></div>
-            <div class="shortcut-row"><span>Previous word</span><span class="shortcut-key">←</span></div>
-            <div class="shortcut-row"><span>Skip 5 forward</span><span class="shortcut-key">Shift+→</span></div>
-            <div class="shortcut-row"><span>Rewind 5</span><span class="shortcut-key">Shift+←</span></div>
+            <div class="shortcut-row"><span>Next word</span><span class="shortcut-key">&#x2192;</span></div>
+            <div class="shortcut-row"><span>Previous word</span><span class="shortcut-key">&#x2190;</span></div>
+            <div class="shortcut-row"><span>Skip 5 forward</span><span class="shortcut-key">Shift+&#x2192;</span></div>
+            <div class="shortcut-row"><span>Rewind 5</span><span class="shortcut-key">Shift+&#x2190;</span></div>
             <div class="shortcut-row"><span>Skip pause</span><span class="shortcut-key">S</span></div>
             <div class="shortcut-row"><span>Toggle mode</span><span class="shortcut-key">M</span></div>
             <div class="shortcut-row"><span>Speed up</span><span class="shortcut-key">+</span></div>
@@ -1523,7 +1489,7 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             currentIndex: 0,
             isPlaying: false,
             isAutoplay: true,
-            speed: 1, // seconds per word
+            speed: 1,
             isPaused: false,
             pauseRemaining: 0,
             pauseDuration: 0,
@@ -1588,7 +1554,9 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             'subset', 'superset', 'union', 'intersection', 'element', 'belongs',
             'forall', 'exists', 'implies', 'iff', 'not', 'and', 'or',
             'lim', 'limit', 'derivative', 'partial',
-            'subscript', 'superscript', 'sub', 'sup', 'power', 'squared', 'cubed'
+            'subscript', 'superscript', 'sub', 'sup', 'power', 'squared', 'cubed',
+            'arrow', 'fraction', 'over', 'absolute', 'value', 'supremum',
+            'square', 'n'
         ]);
 
         const punctuationWords = new Set([
@@ -1596,76 +1564,35 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             'question', 'exclamation', 'apostrophe', 'quote', 'dash', 'hyphen'
         ]);
 
-        // Parse input text into words array
+        // ============================================================
+        // FIXED parseScript: always split non-pause lines into words
+        // ============================================================
         function parseScript(text) {
             const lines = text.trim().split('\n').map(l => l.trim()).filter(l => l);
             const words = [];
-            
-            // Check if it's line-by-line format or space-separated
-            const isLineByLine = lines.length > 1 && !lines[0].includes('[PAUSE') && lines[0].split(/\s+/).length <= 2;
-            
-            if (isLineByLine) {
-                // Line-by-line format
-                for (const line of lines) {
-                    if (line.match(/^\[PAUSE\s+[\d.]+\s*seconds?\]$/i)) {
-                        const match = line.match(/[\d.]+/);
+            const pauseRegex = /^\[PAUSE\s+([\d.]+)\s*seconds?\]$/i;
+
+            for (const line of lines) {
+                const pauseMatch = line.match(pauseRegex);
+                if (pauseMatch) {
+                    // It's a pause directive
+                    words.push({
+                        type: 'pause',
+                        duration: parseFloat(pauseMatch[1]),
+                        text: line
+                    });
+                } else {
+                    // Split this line into individual words
+                    const lineWords = line.split(/\s+/).filter(w => w.length > 0);
+                    for (const w of lineWords) {
                         words.push({
-                            type: 'pause',
-                            duration: parseFloat(match[0]),
-                            text: line
-                        });
-                    } else {
-                        words.push({
-                            type: getWordType(line),
-                            text: line
-                        });
-                    }
-                }
-            } else {
-                // Space-separated format - need to handle [PAUSE X seconds] specially
-                const fullText = lines.join(' ');
-                const tokens = [];
-                let current = '';
-                let inPause = false;
-                
-                for (let i = 0; i < fullText.length; i++) {
-                    const char = fullText[i];
-                    
-                    if (char === '[') {
-                        if (current.trim()) tokens.push(current.trim());
-                        current = '[';
-                        inPause = true;
-                    } else if (char === ']' && inPause) {
-                        current += ']';
-                        tokens.push(current);
-                        current = '';
-                        inPause = false;
-                    } else if (char === ' ' && !inPause) {
-                        if (current.trim()) tokens.push(current.trim());
-                        current = '';
-                    } else {
-                        current += char;
-                    }
-                }
-                if (current.trim()) tokens.push(current.trim());
-                
-                for (const token of tokens) {
-                    if (token.match(/^\[PAUSE\s+[\d.]+\s*seconds?\]$/i)) {
-                        const match = token.match(/[\d.]+/);
-                        words.push({
-                            type: 'pause',
-                            duration: parseFloat(match[0]),
-                            text: token
-                        });
-                    } else {
-                        words.push({
-                            type: getWordType(token),
-                            text: token
+                            type: getWordType(w),
+                            text: w
                         });
                     }
                 }
             }
-            
+
             return words;
         }
 
@@ -1695,7 +1622,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
                 elements.skipPauseBtn.style.display = 'none';
                 elements.currentWord.textContent = word.text;
                 
-                // Apply word type class
                 elements.currentWord.className = 'current-word';
                 if (word.type === 'math') {
                     elements.currentWord.classList.add('word-type-math');
@@ -1704,23 +1630,15 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
                 }
             }
             
-            // Update context
             updateContext();
-            
-            // Update progress
             updateProgress();
-            
-            // Update estimated time
             updateEstimatedTime();
-            
-            // Save to localStorage
             saveProgress();
         }
 
         function updateContext() {
             const n = state.contextWords;
             
-            // Previous context
             const prevWords = [];
             for (let i = Math.max(0, state.currentIndex - n); i < state.currentIndex; i++) {
                 if (state.words[i].type !== 'pause') {
@@ -1731,7 +1649,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             }
             elements.contextPrevious.textContent = prevWords.join(' ');
             
-            // Next context
             const nextWords = [];
             for (let i = state.currentIndex + 1; i <= Math.min(state.words.length - 1, state.currentIndex + n + 1); i++) {
                 if (state.words[i].type !== 'pause') {
@@ -1756,25 +1673,21 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
         }
 
         function updateEstimatedTime() {
-            // Calculate remaining time based on remaining words and pauses
             let remainingSeconds = 0;
             
             for (let i = state.currentIndex + 1; i < state.words.length; i++) {
                 const word = state.words[i];
                 if (word.type === 'pause') {
-                    // Pause duration is also affected by speed multiplier
                     remainingSeconds += word.duration * state.speed;
                 } else {
                     remainingSeconds += state.speed;
                 }
             }
             
-            // If currently on a pause, add remaining pause time
             if (state.words[state.currentIndex]?.type === 'pause' && state.pauseRemaining > 0) {
                 remainingSeconds += state.pauseRemaining;
             }
             
-            // Format as mm:ss or hh:mm:ss
             const hours = Math.floor(remainingSeconds / 3600);
             const minutes = Math.floor((remainingSeconds % 3600) / 60);
             const seconds = Math.floor(remainingSeconds % 60);
@@ -1794,7 +1707,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             const seconds = Math.floor(elapsed % 60);
             elements.elapsedTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
             
-            // Calculate WPM (only counting text words, not pauses)
             const textWordsRead = state.words.slice(0, state.currentIndex + 1)
                 .filter(w => w.type !== 'pause').length;
             const wpm = elapsed > 0 ? Math.round((textWordsRead / elapsed) * 60) : 0;
@@ -1870,7 +1782,7 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
         function startPauseCountdown() {
             clearInterval(state.pauseInterval);
             
-            const updateInterval = 100; // ms
+            const updateInterval = 100;
             state.pauseInterval = setInterval(() => {
                 if (!state.isPlaying) return;
                 
@@ -1954,7 +1866,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             });
             localStorage.setItem('teleprompter_speed', speed);
             
-            // Update estimated time when speed changes
             if (state.words.length > 0) {
                 updateEstimatedTime();
             }
@@ -2055,7 +1966,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             goToWord(index);
         });
 
-        // Shortcuts panel
         elements.shortcutsHint.addEventListener('click', () => {
             elements.shortcutsPanel.classList.toggle('visible');
         });
@@ -2066,7 +1976,6 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
             }
         });
 
-        // Settings
         elements.settingsBtn.addEventListener('click', () => {
             elements.settingsModal.classList.add('visible');
         });
@@ -2097,10 +2006,7 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            // Don't trigger if typing in textarea
             if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
-            
-            // Don't trigger if teleprompter not active
             if (!elements.teleprompterScreen.classList.contains('active')) return;
             
             switch (e.key) {
@@ -2129,11 +2035,11 @@ Thus comma [PAUSE 2 seconds] cap L open bracket"></textarea>
                     break;
                 case '+':
                 case '=':
-                    cycleSpeed(-1); // Faster (lower number)
+                    cycleSpeed(-1);
                     break;
                 case '-':
                 case '_':
-                    cycleSpeed(1); // Slower (higher number)
+                    cycleSpeed(1);
                     break;
                 case 'Home':
                     e.preventDefault();
