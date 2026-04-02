@@ -1568,23 +1568,29 @@ Each non-pause line is split into individual words.
         // FIXED parseScript: always split non-pause lines into words
         // ============================================================
         function parseScript(text) {
-            const lines = text.trim().split('\n').map(l => l.trim()).filter(l => l);
             const words = [];
-            const pauseRegex = /^\[PAUSE\s+([\d.]+)\s*seconds?\]$/i;
+            // Split the entire text by [PAUSE X seconds] directives,
+            // capturing the pause tokens so they stay in the array.
+            const pausePattern = /(\[PAUSE\s+[\d.]+\s*seconds?\])/gi;
+            const parts = text.split(pausePattern);
 
-            for (const line of lines) {
-                const pauseMatch = line.match(pauseRegex);
+            for (const part of parts) {
+                const trimmed = part.trim();
+                if (!trimmed) continue;
+
+                // Check if this chunk is a pause directive
+                const pauseMatch = trimmed.match(/^\[PAUSE\s+([\d.]+)\s*seconds?\]$/i);
                 if (pauseMatch) {
-                    // It's a pause directive
                     words.push({
                         type: 'pause',
                         duration: parseFloat(pauseMatch[1]),
-                        text: line
+                        text: trimmed
                     });
                 } else {
-                    // Split this line into individual words
-                    const lineWords = line.split(/\s+/).filter(w => w.length > 0);
-                    for (const w of lineWords) {
+                    // It's text: split on any whitespace (spaces, newlines, tabs)
+                    // into individual words
+                    const textWords = trimmed.split(/\s+/).filter(w => w.length > 0);
+                    for (const w of textWords) {
                         words.push({
                             type: getWordType(w),
                             text: w
